@@ -3,7 +3,9 @@ from django.shortcuts import render
 
 
 # Create your views here.
+from django.http import HttpResponse, HttpResponseRedirect
 from accountapp.models import Registration
+from django.urls import reverse
 
 def hello_world(request):
     if request.method == "POST":
@@ -15,10 +17,11 @@ def hello_world(request):
 
         reg_all = Registration.objects.all()
 
-        return render(request, "accountapp/hello_world.html",
-                      context={"temp": email,
-                               "reg_all": reg_all})
+        return HttpResponseRedirect(reverse("accountapp:hello_world"))
+
+        reg_all = Registration.objects.all()
 
     temp = "techit"
     return render(request, "accountapp/hello_world.html",
-                  context={"temp": temp})
+                  context={"temp": temp,
+                           "reg_all": reg_all})
