@@ -1,4 +1,4 @@
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -39,3 +39,6 @@ class AccountCreateView(CreateView):
 
 class AccountLoginView(LoginView):
     template_name = "accountapp/login.html"
+
+class AccountLogoutView(LogoutView):
+    pass
