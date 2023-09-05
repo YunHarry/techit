@@ -9,7 +9,7 @@ from django.views.generic import CreateView, DetailView, UpdateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from accountapp.forms import AccountUpdateForm
+from accountapp.forms import AccountUpdateForm, CustomUserCreationForm
 from accountapp.models import Registration
 
 
@@ -35,7 +35,7 @@ def hello_world(request):
 
 class AccountCreateView(CreateView):
     model = User
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm
     success_url = reverse_lazy("accountapp:hello_world")
     template_name = "accountapp/create.html"
 
