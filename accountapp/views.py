@@ -5,7 +5,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from accountapp.models import Registration
@@ -23,7 +23,7 @@ def hello_world(request):
 
         return HttpResponseRedirect(reverse("accountapp:hello_world"))
 
-        reg_all = Registration.objects.all()
+    reg_all = Registration.objects.all()
 
     temp = "techit"
     return render(request, "accountapp/hello_world.html",
@@ -37,8 +37,15 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy("accountapp:hello_world")
     template_name = "accountapp/create.html"
 
+
 class AccountLoginView(LoginView):
     template_name = "accountapp/login.html"
 
+
 class AccountLogoutView(LogoutView):
     pass
+
+class AccountDetailView(DetailView):
+    model = User
+    template_name = "accountapp/detail.html"
+    context_object_name = "target_user"
