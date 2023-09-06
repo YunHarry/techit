@@ -27,6 +27,11 @@
                     Update
                 </div>
             </a>
+            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                <div class="btn btn-dark rounded-pill px-5 my-5">
+                    Update
+                </div>
+            </a>
         </div>
         {% endif %}
     </div>
