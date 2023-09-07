@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+
+<div class="my-5 text-center">
+
+    <div class = "my-5">
+        <h1>
+            {{ target_article.title }}
+        </h1>
+    </div>
+    <div style="max-width: 900px; margin: auto">
+
+        <div>
+            <img src="{{ target_article.image.url }}" alt="">
+        </div>
+
+        <div>
+            {{ target_article.content }}
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
