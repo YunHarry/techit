@@ -4,35 +4,35 @@
             <a href="{% url 'accountapp:hello_world' %}">Techit</a>
         </h1>
     </div>
-    <div class="mb-5 btn btn-warning rounded-pill px-5 my-5">
-        <span>
+    <div class="mb-5">
+        <span class="btn btn-warning rounded-pill px-1 my-1">
             <a href="{% url 'articleapp:temp' %}">
                 Temp
             </a>
         </span>
 
-        <span>nav2</span>
-        <span>nav3</span>
+        <span class="btn btn-warning rounded-pill px-1 my-1">nav2</span>
+        <span class="btn btn-warning rounded-pill px-1 my-1">nav3</span>
 
         {% if user.is_authenticated %}
 
-        <span>
+        <span class="btn btn-warning rounded-pill px-1 my-1">
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
                 MyPage
             </a>
         </span>
-        <span>
+        <span class="btn btn-warning rounded-pill px-1 my-1">
             <a href="{% url 'accountapp:logout' %}">
                 Logout
             </a>
         </span>
         {% else %}
-        <span>
+        <span class="btn btn-warning rounded-pill px-1 my-1">
             <a href="{% url 'accountapp:login' %}">
                 Login
             </a>
         </span>
-        <span>
+        <span class="btn btn-warning rounded-pill px-1 my-1">
             <a href="{% url 'accountapp:create' %}">
                 SignUp
             </a>
