@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class = "my-5">
+    <style>
+
+        .container div {
+          width: 280px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 8px;
+        }
+
+        .container img {
+            width: 100%;
+            border-radius: 2rem;
+        }
+
+    </style>
+    <div class="container">
+
+        {% for article in article_list %}
+        <a href="{% url 'articleapp:detail' pk=article.pk %}">
+            <div class="item1">
+                <img src = "{{ article.image.url }}" alt="">
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/magic-grid/dist/magic-grid.cjs.js"></script>
+
+<script>
+    let magicGrid = new MagicGrid({
+      container: '.container',
+      animate: true,
+      gutter: 30,
+      static: true,
+      useMin: true
+    });
+
+    magicGrid.listen();
+    var masonrys = document.getElementsByTagName("img")
+
+    for (let i = 0; i < masonrys.length; i++) {
+      masonrys[i].addEventListener('load', function () {
+        magicGrid.positionItems();
+      }, false)
+    }
+</script>
+
+{% endblock %}
