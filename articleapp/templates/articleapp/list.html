@@ -29,6 +29,32 @@
         {% endfor %}
     </div>
 
+    <div class="text-center my-5">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"
+               class="btn btn-secondary rounded-pill">
+                {{ page_obj.previous_page_number }}
+            </a>
+        {% endif %}
+            <a href="#"
+               class="btn btn-dark rounded-pill">
+                {{ page_obj.number }}
+            </a>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"
+               class="btn btn-secondary rounded-pill">
+                {{ page_obj.next_page_number }}
+            </a>
+        {% endif %}
+    </div>
+
+    <div class = "my-5 text-center">
+        <a href="{% url 'articleapp:create' %}"
+        class="btn btn-dark rounded-pill px-4">
+            Write
+        </a>
+    </div>
+
 </div>
 
 <script src="https://unpkg.com/magic-grid/dist/magic-grid.cjs.js"></script>
