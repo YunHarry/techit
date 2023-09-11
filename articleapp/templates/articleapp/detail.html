@@ -21,6 +21,15 @@
             {{ target_article.content }}
         </div>
 
+        {% if user == target_article.writer %}
+        <div>
+            <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+            class="btn btn-primary rounded-pill px-5 my-5">
+                Update
+            </a>
+        </div>
+        {% endif %}
+
     </div>
 
 </div>
