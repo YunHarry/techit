@@ -91,12 +91,19 @@
                 {% if user == comment.writer %}
                 <div class="text-end">
                     <a class="btn btn-warning rounded-pill btn-sm px-4 py-0"
-                            href="{% url 'commentapp:update' pk=comment.pk %}">
+                       href="{% url 'commentapp:update' pk=comment.pk %}">
                         Update
                     </a>
                 </div>
                 {% endif %}
-
+                {% if user == comment.writer %}
+                <div class="text-end">
+                    <a class="btn btn-danger rounded-pill btn-sm px-4 py-0"
+                       href="{% url 'commentapp:delete' pk=comment.pk %}">
+                        Delete
+                    </a>
+                </div>
+                {% endif %}
             </div>
             {% endfor %}
 

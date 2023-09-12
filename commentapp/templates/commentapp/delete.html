@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+
+<div class="my-5 text-center">
+
+    <div class = "my-5">
+        <h1>
+            Comment Delete
+        </h1>
+    </div>
+    <div style="max-width: 900px; margin: auto">
+        <form action="{% url 'commentapp:delete' pk=target_comment.pk %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button class="btn btn-danger rounded-pill px-4" type="submit">
+                Delete
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
