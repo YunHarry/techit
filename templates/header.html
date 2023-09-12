@@ -5,34 +5,34 @@
         </h1>
     </div>
     <div class="mb-5">
-        <span class="btn btn-warning rounded-pill px-1 my-1">
+        <span class="btn btn-warning rounded-pill px-3 my-1">
             <a href="{% url 'articleapp:list' %}">
                 List
             </a>
         </span>
 
-        <span class="btn btn-warning rounded-pill px-1 my-1">nav2</span>
-        <span class="btn btn-warning rounded-pill px-1 my-1">nav3</span>
+        <span class="btn btn-warning rounded-pill px-3 my-1">nav2</span>
+        <span class="btn btn-warning rounded-pill px-3 my-1">nav3</span>
 
         {% if user.is_authenticated %}
 
-        <span class="btn btn-warning rounded-pill px-1 my-1">
+        <span class="btn btn-warning rounded-pill px-3 my-1">
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
                 MyPage
             </a>
         </span>
-        <span class="btn btn-warning rounded-pill px-1 my-1">
+        <span class="btn btn-warning rounded-pill px-3 my-1">
             <a href="{% url 'accountapp:logout' %}">
                 Logout
             </a>
         </span>
         {% else %}
-        <span class="btn btn-warning rounded-pill px-1 my-1">
+        <span class="btn btn-warning rounded-pill px-3 my-1">
             <a href="{% url 'accountapp:login' %}">
                 Login
             </a>
         </span>
-        <span class="btn btn-warning rounded-pill px-1 my-1">
+        <span class="btn btn-warning rounded-pill px-3 my-1">
             <a href="{% url 'accountapp:create' %}">
                 SignUp
             </a>
