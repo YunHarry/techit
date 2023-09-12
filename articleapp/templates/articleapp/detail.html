@@ -77,6 +77,18 @@
             {% include 'commentapp/create.html' %}
         </div>
 
+        <div>
+
+            {% for comment in target_article.comment.all %}
+            <div>
+                <p>
+                    testing
+                </p>
+            </div>
+            {% endfor %}
+
+        </div>
+
     </div>
 
 </div>
