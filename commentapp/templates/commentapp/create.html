@@ -9,6 +9,11 @@
 
             {% csrf_token %}
             {% bootstrap_form form %}
+
+            <input type="hidden"
+                    name="article_pk"
+                    value="{{  target_article.pk }}">
+            
             <div class="text-end">
                 <button class="btn btn-warning rounded-pill px-5 my-2" type="submit">
                 Submit
