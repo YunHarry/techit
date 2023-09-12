@@ -3,7 +3,10 @@
 
     </div>
     <div style="max-width: 900px; margin: auto">
-        <form action="{% url 'commentapp:create' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'commentapp:create' %}"
+              method="post"
+              enctype="multipart/form-data">
+
             {% csrf_token %}
             {% bootstrap_form form %}
             <div class="text-end">
