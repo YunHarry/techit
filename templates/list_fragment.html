@@ -1,0 +1,92 @@
+
+<style>
+
+  .container div {
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  @media (min-width: 768px) {
+    .container div {
+       width: 17rem;
+    }
+  }
+
+  .container img {
+    width: 100%;
+    border-radius: 2rem;
+  }
+
+</style>
+
+
+<div class="my-5">
+
+  <div class="container">
+    {% for article in article_list %}
+
+    <a href="{% url 'articleapp:detail' pk=article.pk %}">
+      <div class="item1">
+        <img src="{{ article.image.url }}" alt="">
+      </div>
+    </a>
+
+    {% endfor %}
+  </div>
+
+  <div class="text-center my-5">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"
+               class="btn btn-secondary rounded-pill">
+                {{ page_obj.previous_page_number }}
+            </a>
+        {% endif %}
+            <a href="#"
+               class="btn btn-dark rounded-pill">
+                {{ page_obj.number }}
+            </a>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"
+               class="btn btn-secondary rounded-pill">
+                {{ page_obj.next_page_number }}
+            </a>
+        {% endif %}
+    </div>
+
+
+    <div class="my-5 text-center">
+
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btn-dark rounded-pill px-5">
+            Write
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<script src="https://unpkg.com/magic-grid/dist/magic-grid.cjs.js"></script>
+<script>
+  let magicGrid = new MagicGrid({
+    container: '.container',
+    animate: true,
+    gutter: 12,
+    static: true,
+    useMin: true
+  });
+
+  magicGrid.listen();
+
+  var masonrys = document.getElementsByTagName("img")
+
+  for (let i = 0; i < masonrys.length; i++) {
+    masonrys[i].addEventListener('load', function () {
+      magicGrid.positionItems();
+    }, false)
+  }
+</script>
