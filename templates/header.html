@@ -12,7 +12,13 @@
         </span>
 
         <span class="btn btn-warning rounded-pill px-3 my-1">nav2</span>
-        <span class="btn btn-warning rounded-pill px-3 my-1">nav3</span>
+
+        <span class="btn btn-warning rounded-pill px-3 my-1">
+            <a href="{% url 'subscribeapp:list' %}">
+                Subscription
+            </a>
+        </span>
+
 
         {% if user.is_authenticated %}
 
