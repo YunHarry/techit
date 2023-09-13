@@ -46,25 +46,41 @@
                     Profile Update
                 </div>
             </a>
+            <div>
+                <a href="{% url 'articleapp:create' %}"
+                   class="btn btn-primary rounded-pill px-5 my-5">
+                    Article Create
+                </a>
+            </div>
             {% endif %}
         </div>
         {% else %}
         <div>
-            <a href="{% url 'subscribeapp:sub' pk=target_user.pk %}">
-                <div class="btn btn-dark rounded-pill px-5 my-5">
-                    Subscribe
-                </div>
-            </a>
+            {% if not subscribed %}
+            <div>
+                <a href="{% url 'subscribeapp:sub' pk=target_user.pk %}">
+                    <div class="btn btn-dark rounded-pill px-5 my-5">
+                        Subscribe
+                    </div>
+                </a>
+            </div>
+            {% else %}
+            <div>
+                <a href="{% url 'subscribeapp:sub' pk=target_user.pk %}">
+                    <div class="btn btn-secondary rounded-pill px-5 my-5">
+                        Unsubscribe
+                    </div>
+                </a>
+            </div>
+            {% endif %}
         </div>
+
         {% endif %}
-    </div>
-    <div>
-        <a href="{% url 'articleapp:create' %}"
-        class="btn btn-primary rounded-pill px-5 my-5">
-            Article Create
-        </a>
     </div>
 
 </div>
+
+
+{% include 'list_fragment.html' with article_list=object_list %}
 
 {% endblock %}
