@@ -48,6 +48,14 @@
             </a>
             {% endif %}
         </div>
+        {% else %}
+        <div>
+            <a href="{% url 'subscribeapp:sub' pk=target_user.pk %}">
+                <div class="btn btn-dark rounded-pill px-5 my-5">
+                    Subscribe
+                </div>
+            </a>
+        </div>
         {% endif %}
     </div>
     <div>
