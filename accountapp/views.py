@@ -16,6 +16,8 @@ from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm, CustomUserCreationForm
 from accountapp.models import Registration
 from articleapp.models import Article
+from subscribeapp.models import Subscription
+
 
 
 def hello_world(request):
