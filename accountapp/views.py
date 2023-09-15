@@ -34,7 +34,7 @@ def hello_world(request):
 
     reg_all = Registration.objects.all()
 
-    temp = "techit"
+    temp = "temp printed value"
     return render(request, "accountapp/hello_world.html",
                   context={"temp": temp,
                            "reg_all": reg_all})
