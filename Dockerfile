@@ -14,4 +14,4 @@ RUN pip install gunicorn
 
 EXPOSE 8000
 
-CMD ["bash", "-c", "python manage.py migrate && gunicorn techit.wsgi --bind 0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn techit.wsgi --bind 0.0.0.0:8000"]
