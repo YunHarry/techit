@@ -12,6 +12,10 @@ RUN pip install -r requirements.txt
 
 RUN pip install gunicorn
 
+RUN pip install mysqlclient
+
 EXPOSE 8000
 
-CMD ["bash", "-c", "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn techit.wsgi --bind 0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=techit.settings.deploy.py"]
+CMD ["bash", "-c", "python manage.py migrate --settings=techit.settings.deploy.py"]
+CMD ["bash", "-c", "gunicorn --env DJANGO_SETTINGS_MODuLE=techit.settings.deploy techit.wsgi --bind 0.0.0.0:8000"]
