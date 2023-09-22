@@ -11,7 +11,7 @@ services:
       - static_volume:/data/static/
       - /home/ubuntu/techit/nginx.conf:/etc/nginx/nginx.conf
   django:
-    image: techitdjango:0.5
+    image: techitdjango:0.6
     networks:
       - nginx_django
     volumes:

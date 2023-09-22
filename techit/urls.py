@@ -28,6 +28,7 @@ urlpatterns = [
     path('article/', include('articleapp.urls')),
     path('comment/', include('commentapp.urls')),
     path('subscribe/', include('subscribeapp.urls')),
+    path('like/', include('likeapp.urls')),
 
     path('', hello_world)
 ] + static(
