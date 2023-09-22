@@ -27,7 +27,7 @@ ALLOWED_HOSTS = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": read_secret("MARIADB_DATABASE)",
+        "NAME": read_secret("MARIADB_DATABASE)"),
         "USER": read_secret("MARIADB_USER"),
         "PASSWORD": read_secret("MARIADB_PASSWORD"),
         "HOST": "mariadb",
