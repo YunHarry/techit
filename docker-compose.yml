@@ -30,10 +30,10 @@ services:
     volumes:
       - mariadb_volume:/var/lib/mysql/
     environment:
-      MARIADB_USER: django
-      MARIADB_PASSWORD: password1234
-      MARIADB_ROOT_PASSWORD: password1234
-      MARIADB_DATABASE: mariadb
+      MARIADB_USER_FILE: /run/secrets/MARIADB_USER
+      MARIADB_PASSWORD_FILE: /run/secrets/MARIADB_PASSWORD
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
+      MARIADB_DATABASE_FILE: /run/secrets/MARIADB_DATABASE
     secrets:
       - MARIADB_USER
       - MARIADB_PASSWORD
@@ -46,3 +46,12 @@ volumes:
   media_volume:
   static_volume:
   mariadb_volume:
+secrets:
+  MARIADB_USER:
+    external: true
+  MARIADB_PASSWORD:
+    external: true
+  MARIADB_ROOT_PASSWORD:
+    external: true
+  MARIADB_DATABASE:
+    external: true
